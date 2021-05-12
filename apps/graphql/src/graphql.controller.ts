@@ -3,10 +3,10 @@ import { GraphqlService } from './graphql.service';
 
 @Controller()
 export class GraphqlController {
-  constructor(private readonly graphqlService: GraphqlService) {}
+    constructor(private readonly graphqlService: GraphqlService) {}
 
-  @Get()
-  getHello(): string {
-    return this.graphqlService.getHello();
-  }
+    @Get()
+    getHello(): string {
+        return this.graphqlService.getHello();
+    }
 }

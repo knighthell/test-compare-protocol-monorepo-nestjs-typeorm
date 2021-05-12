@@ -3,8 +3,8 @@ import { GraphqlController } from './graphql.controller';
 import { GraphqlService } from './graphql.service';
 
 @Module({
-  imports: [],
-  controllers: [GraphqlController],
-  providers: [GraphqlService],
+    imports: [],
+    controllers: [GraphqlController],
+    providers: [GraphqlService],
 })
 export class GraphqlModule {}

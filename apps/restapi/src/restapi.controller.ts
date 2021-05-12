@@ -3,10 +3,10 @@ import { RestapiService } from './restapi.service';
 
 @Controller()
 export class RestapiController {
-  constructor(private readonly restapiService: RestapiService) {}
+    constructor(private readonly restapiService: RestapiService) {}
 
-  @Get()
-  getHello(): string {
-    return this.restapiService.getHello();
-  }
+    @Get()
+    getHello(): string {
+        return this.restapiService.getHello();
+    }
 }
