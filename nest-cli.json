@@ -1,0 +1,47 @@
+{
+    "collection": "@nestjs/schematics",
+    "sourceRoot": "apps/test-compare-protocol-monorepo-nestjs-typeorm/src",
+    "monorepo": true,
+    "root": "apps/test-compare-protocol-monorepo-nestjs-typeorm",
+    "compilerOptions": {
+        "webpack": true
+    },
+    "projects": {
+        "restapi": {
+            "type": "application",
+            "root": "apps/restapi",
+            "entryFile": "main",
+            "sourceRoot": "apps/restapi/src",
+            "compilerOptions": {
+                "tsConfigPath": "apps/restapi/tsconfig.app.json"
+            }
+        },
+        "grpc": {
+            "type": "application",
+            "root": "apps/grpc",
+            "entryFile": "main",
+            "sourceRoot": "apps/grpc/src",
+            "compilerOptions": {
+                "tsConfigPath": "apps/grpc/tsconfig.app.json"
+            }
+        },
+        "graphql": {
+            "type": "application",
+            "root": "apps/graphql",
+            "entryFile": "main",
+            "sourceRoot": "apps/graphql/src",
+            "compilerOptions": {
+                "tsConfigPath": "apps/graphql/tsconfig.app.json"
+            }
+        },
+        "db-service": {
+            "type": "library",
+            "root": "libs/db-service",
+            "entryFile": "index",
+            "sourceRoot": "libs/db-service/src",
+            "compilerOptions": {
+                "tsConfigPath": "libs/db-service/tsconfig.lib.json"
+            }
+        }
+    }
+}
