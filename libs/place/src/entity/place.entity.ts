@@ -16,28 +16,4 @@ export class PlaceEntity {
         srid: 4326,
     })
     geoPoint: Point;
-
-    @Column('uuid')
-    @IsUUID('4')
-    createdBy: string;
-
-    @CreateDateColumn()
-    @IsDate()
-    createdAt: Date;
-
-    @Column('uuid')
-    @IsUUID('4')
-    updatedBy: string;
-
-    @UpdateDateColumn()
-    @IsDate()
-    updatedAt: Date;
-
-    @Column('uuid', { nullable: true })
-    @IsUUID('4')
-    deletedBy?: string;
-
-    @DeleteDateColumn()
-    @IsDate()
-    deletedAt?: Date;
 }

@@ -1,12 +1,26 @@
 import { Controller, Get } from '@nestjs/common';
-import { GrpcService } from './grpc.service';
+import { GrpcMethod } from '@nestjs/microservices';
+import { PlaceService } from '@app/place';
+import { RequestReadPlacesInterface } from './interface/request-read-places.interface';
+import { ResponseReadPlacesInterface } from './interface/response-read-places.interface';
+import { RequestCreatePlacesInterface } from './interface/request-create-places.interface';
+import { ResponseCreatePlacesInterface } from './interface/response-create-places.interface';
 
 @Controller()
 export class GrpcController {
-    constructor(private readonly grpcService: GrpcService) {}
+    constructor(private readonly placeService: PlaceService) {}
 
-    @Get()
-    getHello(): string {
-        return this.grpcService.getHello();
+    @GrpcMethod('PlaceService', 'ReadPlaces')
+    async readPlaces(request: RequestReadPlacesInterface): Promise<ResponseReadPlacesInterface> {
+        const [places, totalCount] = await this.placeService.findAllandCount();
+
+        return { places, totalCount };
+    }
+
+    @GrpcMethod('PlaceService', 'CreatePlaces')
+    async createPlaces(request: RequestCreatePlacesInterface): Promise<ResponseCreatePlacesInterface> {
+        const [places, totalCount] = await this.placeService.createAll(request.places);
+
+        return { places, totalCount };
     }
 }
