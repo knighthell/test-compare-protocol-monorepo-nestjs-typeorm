@@ -76,8 +76,8 @@
             "<rootDir>/libs/"
         ],
         "moduleNameMapper": {
-            "@app/db-service/(.*)": "<rootDir>/libs/db-service/src/$1",
-            "@app/db-service": "<rootDir>/libs/db-service/src"
+            "@app/place/(.*)": "<rootDir>/libs/place/src/$1",
+            "@app/place": "<rootDir>/libs/place/src"
         }
     }
 }

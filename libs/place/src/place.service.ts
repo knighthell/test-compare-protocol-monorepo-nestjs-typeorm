@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { PlaceEntity } from '@app/db-service/entity/place.entity';
+import { PlaceEntity } from '@app/place/entity/place.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
-export class DbServiceService {
+export class PlaceService {
     constructor(@InjectRepository(PlaceEntity) private placeRepository: Repository<PlaceEntity>) {}
 
     async findAllandCount(): Promise<[PlaceEntity[], number]> {

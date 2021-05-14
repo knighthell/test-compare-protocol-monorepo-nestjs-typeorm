@@ -34,13 +34,13 @@
                 "tsConfigPath": "apps/graphql/tsconfig.app.json"
             }
         },
-        "db-service": {
+        "place": {
             "type": "library",
-            "root": "libs/db-service",
+            "root": "libs/place",
             "entryFile": "index",
-            "sourceRoot": "libs/db-service/src",
+            "sourceRoot": "libs/place/src",
             "compilerOptions": {
-                "tsConfigPath": "libs/db-service/tsconfig.lib.json"
+                "tsConfigPath": "libs/place/tsconfig.lib.json"
             }
         }
     }
