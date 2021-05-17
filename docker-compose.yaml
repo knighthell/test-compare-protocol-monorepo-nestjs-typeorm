@@ -2,7 +2,8 @@ version: "3.7"
 
 services:
   postgis:
-    image: postgis/postgis
+    container_name: postgis
+    image: postgis/postgis:13-3.1-alpine
     ports:
       - 5432:5432
     environment:
