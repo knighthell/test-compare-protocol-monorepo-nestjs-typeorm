@@ -22,7 +22,9 @@
             "entryFile": "main",
             "sourceRoot": "apps/grpc/src",
             "compilerOptions": {
-                "tsConfigPath": "apps/grpc/tsconfig.app.json"
+                "tsConfigPath": "apps/grpc/tsconfig.app.json",
+                "assets": ["**/*.proto"],
+                "watchAssets": true
             }
         },
         "graphql": {
