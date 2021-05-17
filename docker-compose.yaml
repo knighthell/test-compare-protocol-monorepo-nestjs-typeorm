@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  postgis:
+    image: postgis/postgis
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: place
+      POSTGRES_PASSWORD: place1234!!
