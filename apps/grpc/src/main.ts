@@ -12,6 +12,6 @@ async function bootstrap() {
             protoPath: join(__dirname, './place.proto'),
         },
     });
-    await app.listen(() => console.log('Scaffold Place gRPC Microservice is listening'));
+    await app.listen(() => console.log('Test Place gRPC Service is listening'));
 }
 bootstrap();
