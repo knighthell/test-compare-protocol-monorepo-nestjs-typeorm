@@ -15,8 +15,9 @@ import { PlaceEntity } from '@app/place/entity/place.entity';
             entities: [PlaceEntity],
             synchronize: true,
         }),
+        TypeOrmModule.forFeature([PlaceEntity]),
     ],
     providers: [PlaceService],
-    exports: [PlaceService, PlaceEntity],
+    exports: [PlaceService, TypeOrmModule.forFeature([PlaceEntity])],
 })
 export class PlaceModule {}

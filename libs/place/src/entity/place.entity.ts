@@ -3,7 +3,6 @@ import { Point } from 'geojson';
 import { IsUUID } from 'class-validator';
 import { ObjectType } from '@nestjs/graphql';
 
-@ObjectType()
 @Entity('place')
 export class PlaceEntity {
     @PrimaryGeneratedColumn('uuid')
