@@ -1,7 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { Point } from 'geojson';
 import { IsUUID } from 'class-validator';
-import { ObjectType } from '@nestjs/graphql';
 
 @Entity('place')
 export class PlaceEntity {
