@@ -23,6 +23,6 @@ RUN npm install --only=production
 
 COPY . .
 
-COPY --from=builder /usr/src/app/dist/restapi ./dist
+COPY --from=builder /usr/src/app/dist/apps/restapi ./dist
 
 CMD ["node", "dist/main"]
