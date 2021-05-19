@@ -13,6 +13,19 @@ services:
     build:
       context: .
       dockerfile: apps/restapi/Dockerfile
+  test-grpc:
+    container_name: test-grpc
+    image: node/node:14-alpine
+    ports:
+      - 50051:50051
+    expose:
+      - 50051
+    depends_on:
+      - test-postgis
+      - test-restapi
+    build:
+      context: .
+      dockerfile: apps/grpc/Dockerfile
   test-postgis:
     container_name: test-postgis
     image: postgis/postgis:13-3.1-alpine
@@ -21,3 +34,8 @@ services:
     environment:
       POSTGRES_USER: place
       POSTGRES_PASSWORD: place1234!!
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
