@@ -7,7 +7,7 @@ import { PlaceEntity } from '@app/place/entity/place.entity';
     imports: [
         TypeOrmModule.forRoot({
             type: 'postgres',
-            host: 'localhost',
+            host: 'test-postgis',
             port: 5432,
             username: 'place',
             password: 'place1234!!',

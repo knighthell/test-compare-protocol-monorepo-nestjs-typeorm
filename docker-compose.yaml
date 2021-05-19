@@ -1,8 +1,20 @@
 version: "3.7"
 
 services:
-  postgis:
-    container_name: postgis
+  test-restapi:
+    container_name: test-restapi
+    image: node/node:14-alpine
+    ports:
+      - 3000:3000
+    expose:
+      - 3000
+    depends_on:
+      - test-postgis
+    build:
+      context: .
+      dockerfile: apps/restapi/Dockerfile
+  test-postgis:
+    container_name: test-postgis
     image: postgis/postgis:13-3.1-alpine
     ports:
       - 5432:5432
