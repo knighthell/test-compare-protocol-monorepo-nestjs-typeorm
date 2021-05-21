@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package place;
+
+service PlaceService {
+  rpc ReadPlaces (RequestReadPlaces) returns (ResponseReadPlaces) {}
+  rpc CreatePlaces (RequestCreatePlaces) returns (ResponseCreatePlace) {}
+}
+
+message Place {
+  string id = 1;
+  string name = 2;
+  GeoPoint geoPoint = 3;
+}
+
+message GeoPoint {
+  string type = 1;
+  repeated double coordinates = 2;
+}
+
+message RequestReadPlaces {
+  string keyword = 1;
+}
+
+message ResponseReadPlaces {
+  int32 totalCount = 1;
+  repeated Place places = 2;
+}
+
+message RequestCreatePlaces {
+  repeated Place places = 1;
+}
+
+message ResponseCreatePlace {
+  int32 totalCount = 1;
+  repeated Place places = 2;
+}

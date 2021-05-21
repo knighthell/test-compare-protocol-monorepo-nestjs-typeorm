@@ -10,6 +10,7 @@
         "build": "nest build",
         "build:restapi": "nest build restapi",
         "build:grpc": "nest build grpc",
+        "build:test-client": "nest build test-client",
         "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
         "start": "nest start",
         "start:dev": "nest start --watch",

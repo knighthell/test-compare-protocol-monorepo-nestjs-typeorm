@@ -35,6 +35,17 @@
             "compilerOptions": {
                 "tsConfigPath": "libs/place/tsconfig.lib.json"
             }
+        },
+        "test-client": {
+            "type": "application",
+            "root": "apps/test-client",
+            "entryFile": "main",
+            "sourceRoot": "apps/test-client/src",
+            "compilerOptions": {
+                "tsConfigPath": "apps/test-client/tsconfig.app.json",
+                "assets": ["**/*.proto"],
+                "watchAssets": true
+            }
         }
     }
 }
