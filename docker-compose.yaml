@@ -1,18 +1,18 @@
-version: '3.7'
+version: '3.8'
 
 services:
-    test-restapi:
-        container_name: test-restapi
-        image: node/node:14-alpine
-        ports:
-            - 3000:3000
-        expose:
-            - 3000
-        depends_on:
-            - test-postgis
-        build:
-            context: .
-            dockerfile: apps/restapi/Dockerfile
+#    test-restapi:
+#        container_name: test-restapi
+#        image: node/node:14-alpine
+#        ports:
+#            - 3000:3000
+#        expose:
+#            - 3000
+#        depends_on:
+#            - test-postgis
+#        build:
+#            context: .
+#            dockerfile: apps/restapi/Dockerfile
     test-grpc:
         container_name: test-grpc
         image: node/node:14-alpine
@@ -22,15 +22,18 @@ services:
             - 50051
         depends_on:
             - test-postgis
-            - test-restapi
         build:
             context: .
             dockerfile: apps/grpc/Dockerfile
+        environment:
+            WAIT_HOSTS: test-postgis:5432
     test-postgis:
         container_name: test-postgis
         image: postgis/postgis:13-3.1-alpine
         ports:
             - 5432:5432
+        expose:
+            - 5432
         environment:
             POSTGRES_USER: place
             POSTGRES_PASSWORD: place1234!!
@@ -39,17 +42,16 @@ services:
             interval: 10s
             timeout: 5s
             retries: 5
-#  test-client-restapi:
-#    container_name: test-client-restapi
-#    image: node/node:14-alpine
-#    ports:
-#      - 3000:3001
-#    expose:
-#      - 3001
-#    depends_on:
-#      - test-postgis
-#      - test-restapi
-#      - test-grpc
-#    build:
-#      context: .
-#      dockerfile: apps/test-client/Dockerfile
+#    test-client-restapi:
+#        container_name: test-client-restapi
+#        image: node/node:14-alpine
+#        ports:
+#          - 3000:3001
+#        expose:
+#          - 3001
+#        depends_on:
+#          - test-restapi
+#          - test-grpc
+#        build:
+#            context: .
+#            dockerfile: apps/test-client/Dockerfile

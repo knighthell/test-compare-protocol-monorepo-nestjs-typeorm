@@ -25,4 +25,8 @@ COPY . .
 
 COPY --from=grpcBuilder /usr/src/app/dist/apps/grpc ./dist
 
-CMD ["node", "dist/main"]
+## Add the wait script to the image
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.9.0/wait /wait
+RUN chmod +x /wait
+
+CMD ["/wait", "&&" ,"node", "dist/main"]
