@@ -25,4 +25,8 @@ COPY . .
 
 COPY --from=restapiBuilder /usr/src/app/dist/apps/restapi ./dist
 
-CMD ["node", "dist/main"]
+## Add the wait script to the image
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.9.0/wait /wait
+RUN chmod +x /wait
+
+CMD ["sh", "-c", "/wait && node dist/main"]

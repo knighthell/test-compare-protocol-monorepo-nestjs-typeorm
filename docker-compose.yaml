@@ -1,18 +1,20 @@
 version: '3.8'
 
 services:
-#    test-restapi:
-#        container_name: test-restapi
-#        image: node/node:14-alpine
-#        ports:
-#            - 3000:3000
-#        expose:
-#            - 3000
-#        depends_on:
-#            - test-postgis
-#        build:
-#            context: .
-#            dockerfile: apps/restapi/Dockerfile
+    test-restapi:
+        container_name: test-restapi
+        image: node/node:14-alpine
+        ports:
+            - 3000:3000
+        expose:
+            - 3000
+        depends_on:
+            - test-postgis
+        build:
+            context: .
+            dockerfile: apps/restapi/Dockerfile
+        environment:
+            WAIT_HOSTS: test-postgis:5432
     test-grpc:
         container_name: test-grpc
         image: node/node:14-alpine
@@ -55,3 +57,5 @@ services:
 #        build:
 #            context: .
 #            dockerfile: apps/test-client/Dockerfile
+#        environment:
+#            WAIT_HOSTS: test-postgis:5432, test-restapi:3000, test-grpc:50051
