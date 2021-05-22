@@ -25,10 +25,10 @@
     },
     "dependencies": {
         "@grpc/proto-loader": "^0.6.2",
-        "@nestjs/common": "^7.5.1",
-        "@nestjs/core": "^7.5.1",
+        "@nestjs/common": "^7.6.17",
+        "@nestjs/core": "^7.6.17",
         "@nestjs/microservices": "^7.6.15",
-        "@nestjs/platform-express": "^7.5.1",
+        "@nestjs/platform-express": "^7.6.17",
         "@nestjs/typeorm": "^7.1.5",
         "@types/geojson": "^7946.0.7",
         "apollo-server-express": "^2.24.0",
