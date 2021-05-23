@@ -10,7 +10,7 @@ export class TestClientService implements OnModuleInit {
     constructor(@Inject('PLACE_PACKAGE') private placeGrpcClient: ClientGrpc, private httpService: HttpService) {}
 
     onModuleInit() {
-        this.placeGrpcService = this.placeGrpcClient.getService<ServiceGrpcPlaceInterface>('placeGrpcService');
+        this.placeGrpcService = this.placeGrpcClient.getService<ServiceGrpcPlaceInterface>('PlaceService');
     }
 
     async getPlacesByRestAPI(): Promise<{ places: PlaceEntity[]; totalCount: number }> {
