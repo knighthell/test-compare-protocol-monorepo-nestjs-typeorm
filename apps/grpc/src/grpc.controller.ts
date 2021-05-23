@@ -12,6 +12,7 @@ export class GrpcController {
 
     @GrpcMethod('PlaceService', 'ReadPlaces')
     async readPlaces(request: RequestReadPlacesInterface): Promise<ResponseReadPlacesInterface> {
+        console.log('Called gRPC : readPlaces');
         const [places, totalCount] = await this.placeService.findAllandCount();
 
         return { places, totalCount };
@@ -19,6 +20,7 @@ export class GrpcController {
 
     @GrpcMethod('PlaceService', 'CreatePlaces')
     async createPlaces(request: RequestCreatePlacesInterface): Promise<ResponseCreatePlacesInterface> {
+        console.log('Called gRPC : createPlaces');
         const [places, totalCount] = await this.placeService.createAll(request.places);
 
         return { places, totalCount };

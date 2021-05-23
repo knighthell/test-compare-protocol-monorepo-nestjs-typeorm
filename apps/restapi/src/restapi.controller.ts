@@ -8,6 +8,7 @@ export class RestapiController {
 
     @Get()
     async findALlAndCount(): Promise<{ places: PlaceEntity[]; totalCount: number }> {
+        console.log('Called RestAPI : findALlAndCount');
         const [places, totalCount] = await this.placeService.findAllandCount();
 
         return { places, totalCount };
@@ -15,6 +16,7 @@ export class RestapiController {
 
     @Post()
     async createPlaceAll(@Body() creatablePlaces: PlaceEntity[]): Promise<{ places: PlaceEntity[]; totalCount: number }> {
+        console.log('Called RestAPI : createPlaceAll');
         const [places, totalCount] = await this.placeService.createAll(creatablePlaces);
 
         return { places, totalCount };

@@ -7,6 +7,8 @@ export class TestClientController {
 
     @Get('restapi')
     async getPlaceByRestAPI(): Promise<{ totalCount: number; startTime: string; endTime: string; durationMilliSec: number }> {
+        console.log('Called Test Client : getPlaceByRestAPI');
+
         const startTime = new Date();
         const { places, totalCount } = await this.testClientService.getPlacesByRestAPI();
         const endTime = new Date();
@@ -23,6 +25,8 @@ export class TestClientController {
 
     @Get('grpc')
     async getPlacesByGRPC(): Promise<{ totalCount: number; startTime: string; endTime: string; durationMilliSec: number }> {
+        console.log('Called Test Client : getPlacesByGRPC');
+
         const startTime = new Date();
         const { places, totalCount } = await this.testClientService.getPlaceByGRPC();
         const endTime = new Date();
