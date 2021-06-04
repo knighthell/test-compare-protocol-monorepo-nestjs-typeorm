@@ -22,25 +22,29 @@
             "entryFile": "main",
             "sourceRoot": "apps/grpc/src",
             "compilerOptions": {
-                "tsConfigPath": "apps/grpc/tsconfig.app.json"
+                "tsConfigPath": "apps/grpc/tsconfig.app.json",
+                "assets": ["**/*.proto"],
+                "watchAssets": true
             }
         },
-        "graphql": {
-            "type": "application",
-            "root": "apps/graphql",
-            "entryFile": "main",
-            "sourceRoot": "apps/graphql/src",
-            "compilerOptions": {
-                "tsConfigPath": "apps/graphql/tsconfig.app.json"
-            }
-        },
-        "db-service": {
+        "place": {
             "type": "library",
-            "root": "libs/db-service",
+            "root": "libs/place",
             "entryFile": "index",
-            "sourceRoot": "libs/db-service/src",
+            "sourceRoot": "libs/place/src",
             "compilerOptions": {
-                "tsConfigPath": "libs/db-service/tsconfig.lib.json"
+                "tsConfigPath": "libs/place/tsconfig.lib.json"
+            }
+        },
+        "test-client": {
+            "type": "application",
+            "root": "apps/test-client",
+            "entryFile": "main",
+            "sourceRoot": "apps/test-client/src",
+            "compilerOptions": {
+                "tsConfigPath": "apps/test-client/tsconfig.app.json",
+                "assets": ["**/*.proto"],
+                "watchAssets": true
             }
         }
     }

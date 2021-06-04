@@ -8,6 +8,9 @@
     "scripts": {
         "prebuild": "rimraf dist",
         "build": "nest build",
+        "build:restapi": "nest build restapi",
+        "build:grpc": "nest build grpc",
+        "build:test-client": "nest build test-client",
         "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
         "start": "nest start",
         "start:dev": "nest start --watch",
@@ -18,15 +21,28 @@
         "test:watch": "jest --watch",
         "test:cov": "jest --coverage",
         "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-        "test:e2e": "jest --config ./apps/test-compare-protocol-monorepo-nestjs-typeorm/test/jest-e2e.json"
+        "test:e2e": "jest --config ./apps/test-compare-protocol-monorepo-nestjs-typeorm/test/jest-e2e.json",
+        "docker:prune": "sudo docker system prune -af"
     },
     "dependencies": {
-        "@nestjs/common": "^7.5.1",
-        "@nestjs/core": "^7.5.1",
-        "@nestjs/platform-express": "^7.5.1",
+        "@grpc/proto-loader": "^0.6.2",
+        "@nestjs/common": "^7.6.17",
+        "@nestjs/core": "^7.6.17",
+        "@nestjs/microservices": "^7.6.15",
+        "@nestjs/platform-express": "^7.6.17",
+        "@nestjs/typeorm": "^7.1.5",
+        "@types/geojson": "^7946.0.7",
+        "apollo-server-express": "^2.24.0",
+        "class-validator": "^0.13.1",
+        "geojson": "^0.5.0",
+        "graphql": "^15.5.0",
+        "graphql-tools": "^7.0.5",
+        "grpc": "^1.24.9",
+        "pg": "^8.6.0",
         "reflect-metadata": "^0.1.13",
         "rimraf": "^3.0.2",
-        "rxjs": "^6.6.3"
+        "rxjs": "^6.6.3",
+        "typeorm": "^0.2.32"
     },
     "devDependencies": {
         "@nestjs/cli": "^7.5.1",
@@ -71,8 +87,8 @@
             "<rootDir>/libs/"
         ],
         "moduleNameMapper": {
-            "@app/db-service/(.*)": "<rootDir>/libs/db-service/src/$1",
-            "@app/db-service": "<rootDir>/libs/db-service/src"
+            "@app/place/(.*)": "<rootDir>/libs/place/src/$1",
+            "@app/place": "<rootDir>/libs/place/src"
         }
     }
 }

@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+    test-restapi:
+        container_name: test-restapi
+        image: node/node:14-alpine
+        ports:
+            - 3000:3000
+        expose:
+            - 3000
+        depends_on:
+            - test-postgis
+        build:
+            context: .
+            dockerfile: apps/restapi/Dockerfile
+        environment:
+            WAIT_HOSTS: test-postgis:5432
+    test-grpc:
+        container_name: test-grpc
+        image: node/node:14-alpine
+        ports:
+            - 50051:50051
+        expose:
+            - 50051
+        depends_on:
+            - test-postgis
+        build:
+            context: .
+            dockerfile: apps/grpc/Dockerfile
+        environment:
+            WAIT_HOSTS: test-postgis:5432
+    test-postgis:
+        container_name: test-postgis
+        image: postgis/postgis:13-3.1-alpine
+        ports:
+            - 5432:5432
+        expose:
+            - 5432
+        environment:
+            POSTGRES_USER: place
+            POSTGRES_PASSWORD: place1234!!
+        healthcheck:
+            test: ['CMD-SHELL', 'pg_isready -U place']
+            interval: 10s
+            timeout: 5s
+            retries: 5
+#    test-client-restapi:
+#        container_name: test-client-restapi
+#        image: node/node:14-alpine
+#        ports:
+#          - 3001:3001
+#        expose:
+#          - 3001
+#        depends_on:
+#          - test-restapi
+#          - test-grpc
+#        build:
+#            context: .
+#            dockerfile: apps/test-client/Dockerfile
+#        environment:
+#            WAIT_HOSTS: test-postgis:5432, test-restapi:3000, test-grpc:50051

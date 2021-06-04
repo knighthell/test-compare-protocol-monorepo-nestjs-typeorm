@@ -1,12 +1,24 @@
-import { Controller, Get } from '@nestjs/common';
-import { RestapiService } from './restapi.service';
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import { PlaceService } from '@app/place';
+import { PlaceEntity } from '@app/place/entity/place.entity';
 
 @Controller()
 export class RestapiController {
-  constructor(private readonly restapiService: RestapiService) {}
+    constructor(private readonly placeService: PlaceService) {}
 
-  @Get()
-  getHello(): string {
-    return this.restapiService.getHello();
-  }
+    @Get()
+    async findALlAndCount(): Promise<{ places: PlaceEntity[]; totalCount: number }> {
+        console.log('Called RestAPI : findALlAndCount');
+        const [places, totalCount] = await this.placeService.findAllandCount();
+
+        return { places, totalCount };
+    }
+
+    @Post()
+    async createPlaceAll(@Body() creatablePlaces: PlaceEntity[]): Promise<{ places: PlaceEntity[]; totalCount: number }> {
+        console.log('Called RestAPI : createPlaceAll');
+        const [places, totalCount] = await this.placeService.createAll(creatablePlaces);
+
+        return { places, totalCount };
+    }
 }

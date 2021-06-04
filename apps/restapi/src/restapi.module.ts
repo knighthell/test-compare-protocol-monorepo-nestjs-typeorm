@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { RestapiController } from './restapi.controller';
-import { RestapiService } from './restapi.service';
+import { PlaceModule, PlaceService } from '@app/place';
 
 @Module({
-  imports: [],
-  controllers: [RestapiController],
-  providers: [RestapiService],
+    imports: [PlaceModule],
+    controllers: [RestapiController],
+    providers: [PlaceService],
 })
 export class RestapiModule {}
