@@ -7,6 +7,6 @@ async function bootstrap() {
     app.use(json({ limit: '50mb' }));
     app.use(urlencoded({ extended: true, limit: '50mb' }));
     await app.listen(3001);
-    console.info('Test Place Restful API Service is listening');
+    console.info('Test gRPC & Restful API Service is listening');
 }
 bootstrap();

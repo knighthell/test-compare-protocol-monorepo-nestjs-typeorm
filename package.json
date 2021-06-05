@@ -22,7 +22,10 @@
         "test:cov": "jest --coverage",
         "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
         "test:e2e": "jest --config ./apps/test-compare-protocol-monorepo-nestjs-typeorm/test/jest-e2e.json",
-        "docker:prune": "sudo docker system prune -af"
+        "docker:prune": "sudo docker system prune -af",
+        "start:grpc": "nest start grpc",
+        "start:restapi": "nest start restapi",
+        "start:test-client": "nest start test-client"
     },
     "dependencies": {
         "@grpc/proto-loader": "^0.6.2",

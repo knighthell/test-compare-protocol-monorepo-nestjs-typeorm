@@ -16,7 +16,7 @@ import { join } from 'path';
                 transport: Transport.GRPC,
                 options: {
                     package: 'place',
-                    url: 'test-grpc:50051',
+                    url: 'localhost:50051',
                     protoPath: join(__dirname, './place.proto'),
                 },
             },
