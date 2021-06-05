@@ -18,6 +18,8 @@ import { join } from 'path';
                     package: 'place',
                     url: 'localhost:50051',
                     protoPath: join(__dirname, './place.proto'),
+                    maxSendMessageLength: 1024 * 1024 * 100,
+                    maxReceiveMessageLength: 1024 * 1024 * 100,
                 },
             },
         ]),
