@@ -7,7 +7,17 @@ This Project is for comparing about RestfulAPI(RestAPI, HttpAPI, JSON-RPC), ~~Gr
 ## Installation
 
 ```bash
+// Postgres Database excute
 $ docker-compose up -d
+
+// gRPC Service excute
+$ npm run start:grpc
+
+// RestAPI Service excute
+$ npm run start:restapi
+
+// Test Client RestAPI excute
+$ npm run start:test-client
 ```
 
 ## Running Containers
@@ -30,7 +40,7 @@ $ curl http://localhost:3001/grpc
 
 ## Result
 
-### Local to Local
+### Local-Server(LAN) to Local-Client(Wifi) -- Local Network
 |Protocal|Test 1|Test 2|Test 3|Test 4|Test 5|Avg.|
 |:---|---:|---:|---:|---:|---:|---:|
 |Restful API|0|0|0|0|0|0
